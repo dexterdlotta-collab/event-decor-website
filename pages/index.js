@@ -3,16 +3,6 @@ import CallButton from "../components/CallButton";
 
 export default function Home() {
   return (
-         <div className="hero">
-      <h1>M Square Event</h1>
-      <p>Wedding • Birthday • Balloon • Stage Decoration</p>
-      <a href="/book" className="btn">Book Decoration</a>
-      <WhatsAppButton />
-       <CallButton />
-    </div>
-  );
-
-
     <>
       {/* HERO */}
       <section className="hero">
@@ -25,9 +15,7 @@ export default function Home() {
           <h1>M Square Events</h1>
         </div>
 
-        <p>
-          Creating Beautiful Wedding, Birthday & Event Decorations
-        </p>
+        <p>Creating Beautiful Wedding, Birthday & Event Decorations</p>
 
         <div className="hero-buttons">
           <a href="/gallery" className="btn">View Gallery</a>
@@ -41,18 +29,15 @@ export default function Home() {
       {/* SERVICES */}
       <section className="section">
         <h2 className="section-title">Our Decoration Services</h2>
-
         <div className="cards">
           <div className="card">
             <h3>Wedding Decoration</h3>
             <p>Stage, Mandap, Flower & Lighting Decoration</p>
           </div>
-
           <div className="card">
             <h3>Birthday Decoration</h3>
             <p>Balloon Themes, Kids & Surprise Decor</p>
           </div>
-
           <div className="card">
             <h3>Event & Party Decor</h3>
             <p>Corporate, Engagement & Special Events</p>
@@ -63,7 +48,6 @@ export default function Home() {
       {/* WHY US */}
       <section className="section light">
         <h2 className="section-title">Why Choose Us</h2>
-
         <div className="why">
           <div>✔ Premium Quality Decor</div>
           <div>✔ Affordable Pricing</div>
@@ -79,7 +63,8 @@ export default function Home() {
         <a href="/book" className="btn">Contact Now</a>
       </section>
     </>
-  
+  );
 }
+
 
 
