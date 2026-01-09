@@ -3,6 +3,16 @@ import CallButton from "../components/CallButton";
 
 export default function Home() {
   return (
+         <div className="hero">
+      <h1>M Square Event</h1>
+      <p>Wedding • Birthday • Balloon • Stage Decoration</p>
+      <a href="/book" className="btn">Book Decoration</a>
+      <WhatsAppButton />
+       <CallButton />
+    </div>
+  );
+
+
     <>
       {/* HERO */}
       <section className="hero">
@@ -69,7 +79,7 @@ export default function Home() {
         <a href="/book" className="btn">Contact Now</a>
       </section>
     </>
-  );
+  
 }
 
 
