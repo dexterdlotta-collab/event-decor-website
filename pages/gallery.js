@@ -2,7 +2,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import CallButton from "../components/CallButton";
 export default function Gallery() {
   return (
-    <div className="section">
+    <div className="gallery-container">
       <h1>Our Decoration Work</h1>
 
       <div className="gallery">
