@@ -18,6 +18,12 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+.about-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+
 .brand {
   display: flex;
   align-items: center;
