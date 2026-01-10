@@ -13,6 +13,8 @@ export default function Home() {
             className="brand-logo"
           />
           <h1>M Square Events</h1>
+          <img src="/profile.jpg"
+           className="profile-pic" />
         </div>
 
         <p>Creating Beautiful Wedding, Birthday & Event Decorations</p>
