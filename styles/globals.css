@@ -1,0 +1,1051 @@
+/* --- 1. CORE RESET & SCREEN FIT --- */
+
+/* This section fixes the "one-side gap" and horizontal scrolling */
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+/* --- 1. CORE RESET & MOBILE FIT --- */
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+
+html, body {
+
+  overflow-x: hidden; /* Fixes the one-side gap */
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 0;
+
+  background-color: #000000;
+
+  font-family: 'Inter', sans-serif;
+
+}
+
+
+
+/* --- 2. VIDEO HERO (THE "VIDEO" FEEL) --- */
+
+.video-hero {
+
+  position: relative;
+
+  height: 100vh;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+}
+
+
+
+.background-video {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: translate(-50%, -50%);
+
+  z-index: -2;
+
+}
+
+
+
+.video-overlay {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.6); /* Darkens video so text is readable */
+
+  z-index: -1;
+
+}
+
+
+
+.hero-content {
+
+  z-index: 1;
+
+  text-align: center;
+
+  color: white;
+
+}
+
+
+
+/* --- 3. LUXURY BRANDING --- */
+
+.gradient-text, .hero h1 {
+
+  font-size: 52px;
+
+  background: linear-gradient(45deg, #D4AF37, #f1e5ac, #b8962e);
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  font-weight: 800;
+
+  animation: shine 4s linear infinite;
+
+}
+
+
+
+@keyframes shine {
+
+  to { background-position: 200% center; }
+
+}
+
+
+
+/* --- 4. PERFECT MOBILE VIEW (600px and down) --- */
+
+@media (max-width: 600px) {
+
+  html, body {
+
+    width: 100%;
+
+    overflow-x: hidden;
+
+  }
+
+
+
+  .hero-content {
+
+    padding: 0 20px;
+
+  }
+
+
+
+  .brand {
+
+    flex-direction: column; /* Stacks logo and text vertically */
+
+    gap: 10px;
+
+  }
+
+
+
+  .hero h1 {
+
+    font-size: 28px !important;
+
+    line-height: 1.2;
+
+  }
+
+
+
+  .hero p {
+
+    font-size: 16px;
+
+    margin-top: 15px;
+
+  }
+
+
+
+  .hero-buttons {
+
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 15px;
+
+  }
+
+
+
+  .btn {
+
+    width: 100%;
+
+    text-align: center;
+
+  }
+
+
+
+  /* Gallery Fix (2 images per row) */
+
+  .gallery {
+
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    gap: 10px;
+
+    padding: 10px;
+
+  }
+
+
+
+  .gallery img {
+
+    height: 180px;
+
+  }
+
+}
+
+
+
+html, body {
+
+  overflow-x: hidden; /* CRITICAL: Stops horizontal scrolling and side gaps */
+
+  width: 100%;        /* CRITICAL: Ensures content fits perfectly */
+
+  margin: 0;
+
+  padding: 0;
+
+  background-color: #000000; /* Luxury Dark Base */
+
+  font-family: 'Inter', -apple-system, sans-serif;
+
+  scroll-behavior: smooth;
+
+  color: #ffffff;
+
+}
+
+
+
+:root {
+
+  --primary-gold: #D4AF37;
+
+  --light-gold: #f1e5ac;
+
+  --dark-gold: #b8962e;
+
+  --text-light: #ffffff;
+
+  --bg-dark: #000000;
+
+  --card-bg: rgba(255, 255, 255, 0.05);
+
+}
+
+
+
+main {
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  animation: fadeIn 0.8s ease-in-out;
+
+}
+
+
+
+@keyframes fadeIn {
+
+  from { opacity: 0; }
+
+  to { opacity: 1; }
+
+}
+
+
+
+/* --- 2. CINEMATIC SPLASH SCREEN --- */
+
+.splash-screen {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100vh;
+
+  background: #000000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+
+}
+
+
+
+.splash-screen img {
+
+  width: 120px;
+
+  height: auto;
+
+  margin-bottom: 20px;
+
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
+
+}
+
+
+
+/* --- 3. PREMIUM NAVBAR --- */
+
+.navbar {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.85);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+
+  padding: 15px 0;
+
+}
+
+
+
+.nav-container {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 20px;
+
+}
+
+
+
+.nav-logo {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+
+  font-weight: 800;
+
+  color: var(--primary-gold);
+
+}
+
+
+
+.nav-logo img { height: 40px; }
+
+
+
+.nav-links { display: flex; align-items: center; gap: 25px; }
+
+
+
+.nav-links a {
+
+  text-decoration: none;
+
+  color: #cccccc;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+
+}
+
+
+
+.nav-links a:hover { color: var(--primary-gold); }
+
+
+
+.nav-btn {
+
+  background: var(--primary-gold);
+
+  color: #000 !important;
+
+  padding: 8px 22px;
+
+  border-radius: 50px;
+
+  font-weight: bold;
+
+  transition: transform 0.3s;
+
+}
+
+
+
+.nav-btn:hover { transform: scale(1.05); }
+
+
+
+/* --- 4. LUXURY HERO SECTION --- */
+
+.hero {
+
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+
+  padding: 120px 20px;
+
+  text-align: center;
+
+  color: white;
+
+}
+
+
+
+.brand {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+
+}
+
+
+
+.brand-logo { width: 80px; height: auto; }
+
+
+
+.gradient-text, .hero h1 {
+
+  font-size: 52px;
+
+  background: linear-gradient(45deg, var(--primary-gold), var(--light-gold), var(--dark-gold));
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  font-weight: 800;
+
+  animation: shine 4s linear infinite;
+
+}
+
+
+
+@keyframes shine {
+
+  to { background-position: 200% center; }
+
+}
+
+
+
+.hero p {
+
+  font-size: 20px;
+
+  color: #dddddd;
+
+  max-width: 700px;
+
+  margin: 0 auto 40px;
+
+}
+
+
+
+/* --- 5. BUTTONS --- */
+
+.hero-buttons {
+
+  display: flex;
+
+  gap: 15px;
+
+  justify-content: center;
+
+}
+
+
+
+.btn {
+
+  padding: 14px 35px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  background: var(--primary-gold);
+
+  color: #000;
+
+  transition: 0.3s;
+
+}
+
+
+
+.btn:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+
+}
+
+
+
+.btn.outline {
+
+  background: transparent;
+
+  border: 2px solid var(--primary-gold);
+
+  color: var(--primary-gold);
+
+}
+
+
+
+/* --- 6. SERVICES & CARDS --- */
+
+.section {
+
+  padding: 80px 20px;
+
+  max-width: 1200px;
+
+  margin: auto;
+
+}
+
+
+
+.section-title {
+
+  font-size: 36px;
+
+  margin-bottom: 50px;
+
+  text-align: center;
+
+  color: var(--primary-gold);
+
+}
+
+
+
+.cards {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 30px;
+
+}
+
+
+
+.card {
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(212, 175, 55, 0.2);
+
+  padding: 40px 30px;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  color: white;
+
+  transition: 0.4s;
+
+}
+
+
+
+.card:hover {
+
+  transform: translateY(-10px);
+
+  border-color: var(--primary-gold);
+
+  background: rgba(255, 255, 255, 0.08);
+
+}
+
+
+
+.card h3 { color: var(--primary-gold); margin-bottom: 10px; }
+
+
+
+/* --- 7. WHY CHOOSE US --- */
+
+.why {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 20px;
+
+}
+
+
+
+.why-pill {
+
+  background: #111;
+
+  padding: 15px 30px;
+
+  border-radius: 50px;
+
+  border-left: 5px solid var(--primary-gold);
+
+  color: var(--light-gold);
+
+  font-weight: 700;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+}
+
+
+
+/* --- 8. GALLERY --- */
+
+.gallery-container { padding: 40px 20px; text-align: center; }
+
+
+
+.gallery {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 20px;
+
+}
+
+
+
+.gallery img {
+
+  width: 100%;
+
+  height: 400px;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+
+  transition: 0.4s;
+
+  border: 1px solid rgba(212, 175, 55, 0.1);
+
+}
+
+
+
+.gallery img:hover { transform: scale(1.02); border-color: var(--primary-gold); }
+
+
+
+/* --- 9. FOOTER --- */
+
+.footer-modern {
+
+  background: #080808;
+
+  color: white;
+
+  padding: 60px 20px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+
+}
+
+
+
+/* --- 10. PERFECT MOBILE VIEW (STRICT FIX) --- */
+
+@media (max-width: 600px) {
+
+  html, body {
+
+    width: 100%;
+
+    overflow-x: hidden;
+
+    position: relative;
+
+  }
+
+
+
+  .hero { padding: 60px 15px; width: 100%; }
+
+
+
+  .brand {
+
+    flex-direction: column !important;
+
+    gap: 10px;
+
+    width: 100%;
+
+  }
+
+ 
+
+  .brand-logo { width: 60px !important; }
+
+
+
+  .hero h1 {
+
+    font-size: 28px !important;
+
+    line-height: 1.2;
+
+    width: 100%;
+
+  }
+
+ 
+
+  .hero p {
+
+    font-size: 16px;
+
+    padding: 0 10px;
+
+    width: 100%;
+
+  }
+
+
+
+  .hero-buttons {
+
+    flex-direction: column !important;
+
+    width: 100%;
+
+    padding: 0 20px;
+
+    gap: 12px;
+
+  }
+
+ 
+
+  .btn { width: 100% !important; text-align: center; }
+
+
+
+  .nav-links { display: none; }
+
+  .nav-container { justify-content: center; }
+
+
+
+  .gallery {
+
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    width: 100%;
+
+  }
+
+
+
+  .gallery img { height: 180px; width: 100%; }
+
+
+
+  .cards, .why {
+
+    grid-template-columns: 1fr !important;
+
+    width: 100% !important;
+
+    padding: 10px;
+
+  }
+
+  /* Gallery Item Wrapper */
+
+.gallery-item {
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 15px;
+
+  height: 400px;
+
+}
+
+
+
+.gallery-item img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+
+}
+
+
+
+.gallery-item:hover img {
+
+  transform: scale(1.1); /* Slight zoom on hover */
+
+}
+
+
+
+/* Caption Styling */
+
+.caption-overlay {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 20px;
+
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /* Fade from bottom */
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+
+  pointer-events: none; /* Allows clicking through to the image if needed */
+
+}
+
+
+
+.caption-overlay p {
+
+  color: #D4AF37; /* Premium Gold */
+
+  font-weight: 700;
+
+  font-size: 1.2rem;
+
+  letter-spacing: 1px;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  margin: 0;
+
+}
+
+
+
+/* Mobile Fix for Gallery Captions */
+
+@media (max-width: 600px) {
+
+  .gallery-item {
+
+    height: 200px; /* Matching your mobile grid height */
+
+  }
+
+ 
+
+  .caption-overlay p {
+
+    font-size: 0.9rem; /* Smaller text for small screens */
+
+  }
+
+}
+
+.video-hero {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 100vh; /* Full screen height */
+
+  overflow: hidden;
+
+  background-color: #000; /* Fallback if video fails */
+
+}
+
+
+
+.background-video {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 50%;
+
+  min-width: 100%;
+
+  min-height: 100%;
+
+  width: auto;
+
+  height: auto;
+
+  z-index: -2; /* Keeps it behind text */
+
+  transform: translateX(-50%) translateY(-50%);
+
+  object-fit: cover; /* Ensures it fills the screen without stretching */
+
+  display: block; /* Ensures it isn't hidden */
+
+}
+
+
+
+.video-overlay {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5); /* Dark tint to see text clearly */
+
+  z-index: -1;
+
+}
+
+}
