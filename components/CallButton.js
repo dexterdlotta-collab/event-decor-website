@@ -2,7 +2,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 export default function CallButton() {
   return (
-    <a href="tel:+918592001421" className="call-btn" aria-label="Call Us">
+    <a href="tel:+916238433287" className="call-btn" aria-label="Call Us">
       <FaPhoneAlt />
       <style jsx>{`
         .call-btn {
