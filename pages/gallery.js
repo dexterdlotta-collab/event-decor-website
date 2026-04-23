@@ -10,7 +10,7 @@ export default function Gallery() {
   // 2. Format images for the Lightbox component
   const slides = images.map((num) => ({
     src: `/gallery/decor${num}.jpg`,
-    title: num <= 18 ? "view image" : "view image",
+    title: num <= 18 ? "view decor" : "view decor",
   }));
 
   // 3. State to handle opening/closing lightbox
@@ -60,7 +60,7 @@ export default function Gallery() {
               transition={{ duration: 0.4 }}
             >
               <span className="caption-text">
-                {num <= 18 ? " View Image" : "View Image"}
+                {num <= 18 ? "View decor" : " View  Decor"}
               </span>
             </motion.div>
           </motion.div>

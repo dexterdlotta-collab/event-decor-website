@@ -4,6 +4,7 @@ import { useRouter } from "next/router"; // Import the router
 import WhatsAppButton from "../components/WhatsAppButton";
 import CallButton from "../components/CallButton";
 import Tilt from 'react-parallax-tilt';
+import InstagramButton from "../components/InstagramButton"; // Add this import
 
 export default function Home() {
   const videoRef = useRef(null);
@@ -96,6 +97,7 @@ export default function Home() {
 
       <WhatsAppButton />
       <CallButton />
+      <InstagramButton />
     </>
   );
 }
