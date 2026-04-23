@@ -964,8 +964,182 @@ main {
 
 }
 
+/* --- 3D EMBED STYLES --- */
+.sketchfab-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 56.25%; /* This maintains a 16:9 cinematic aspect ratio */
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(212, 175, 55, 0.3); /* Gold border to match your theme */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
 
+.sketchfab-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
+.model-credit {
+  text-align: center;
+  margin-top: 15px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Mobile Fix for 3D View */
+@media (max-width: 600px) {
+  .sketchfab-container {
+    padding-top: 100%; /* Makes it a square on mobile so it's easier to touch/rotate */
+  }
+}
+.video-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Force it to stay full screen */
+  background: #000; /* Keeps it black while loading so it doesn't flash white */
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This stops the 'jumping' or 'shrinking' */
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.footer-modern {
+  background: #000;
+  padding: 60px 20px 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  color: white;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* This creates 3 equal columns on desktop */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 40px;
+  text-align: left; /* No more center squashing */
+}
+
+.footer-heading {
+  color: #D4AF37;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-description {
+  color: #888;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link-group a {
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-link-group a:hover {
+  color: #D4AF37;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #bbb;
+}
+
+.insta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #D4AF37;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.footer-copyright {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.divider-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.footer-copyright p {
+  color: #555;
+  font-size: 0.8rem;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    text-align: center;
+  }
+  
+  .insta-link, .contact-info {
+    justify-content: center;
+  }
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1/1; /* Makes them clean squares */
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile Fix: 2 columns instead of 1 */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 10px;
+  }
+  .section-title { font-size: 1.8rem; }
+}
 /* Mobile Fix for Gallery Captions */
 
 @media (max-width: 600px) {

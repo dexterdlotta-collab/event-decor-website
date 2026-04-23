@@ -1,19 +1,53 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router"; // Import the router
 import WhatsAppButton from "../components/WhatsAppButton";
 import CallButton from "../components/CallButton";
+import Tilt from 'react-parallax-tilt';
 
 export default function Home() {
+  const videoRef = useRef(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const router = useRouter(); // Initialize the router
+
+  useEffect(() => {
+    // FORCE the video to play and stay playing
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(e => console.log("Playback error:", e));
+    }
+  }, []);
+
   return (
     <>
-      {/* HERO SECTION WITH VIDEO BACKGROUND */}
       <section className="video-hero">
-        {/* Background Video Layer */}
-        <video autoPlay loop muted playsInline className="background-video">
+        <video 
+          ref={videoRef}
+          key="permanent-bg-video"
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          preload="auto"
+          onLoadedData={() => setVideoLoaded(true)}
+          className={`background-video ${videoLoaded ? 'v-visible' : 'v-hidden'}`}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1
+          }}
+        >
           <source src="/videos/hero-loop.mp4" type="video/mp4" />
         </video>
-        <div className="video-overlay"></div>
+        
+        <div className="video-overlay" style={{ zIndex: 2 }}></div>
 
-        <div className="hero-content">
+        <div className="hero-content" style={{ zIndex: 3, position: 'relative' }}>
           <motion.div 
             className="brand"
             initial={{ opacity: 0, y: -20 }}
@@ -23,66 +57,45 @@ export default function Home() {
             <img src="/logo/m2.png" alt="Logo" style={{ width: '80px' }} />
             <h1 className="gradient-text">M Square Events</h1>
           </motion.div>
-
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            style={{ margin: '20px 0', fontSize: '1.2rem', color: '#fff' }}
-          >
+          
+          <p style={{ margin: '20px 0', fontSize: '1.2rem', color: '#fff' }}>
             Creating Happy Moments: Weddings, Birthdays & Family Celebrations
-          </motion.p>
-
-          <motion.div 
-            className="hero-buttons"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8 }}
-          >
+          </p>
+          
+          <div className="hero-buttons">
             <a href="/gallery" className="btn">View Gallery</a>
             <a href="/book" className="btn outline">Book Now</a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* SERVICES SECTION */}
+
+      {/* SERVICES */}
       <section className="section">
-        <h2 className="section-title" data-aos="fade-up">Our Decoration Services</h2>
+        <h2 className="section-title">Our Decoration Services</h2>
         <div className="cards">
-          <div className="card" data-aos="zoom-in" data-aos-delay="100">
-            <div className="icon-box">🌸</div>
-            <h3>Wedding Decoration</h3>
-            <p>Stage, Mandap, Flower & Lighting Decoration</p>
-          </div>
-
-          <div className="card" data-aos="zoom-in" data-aos-delay="200">
-            <div className="icon-box">🎈</div>
-            <h3>Birthday Decoration</h3>
-            <p>Balloon Themes, Kids & Surprise Decor</p>
-          </div>
-
-          <div className="card" data-aos="zoom-in" data-aos-delay="300">
-            <div className="icon-box">✨</div>
-            <h3>Event & Party Decor</h3>
-            <p>Corporate, Engagement & Special Events</p>
-          </div>
+          {[
+            { icon: "🌸", title: "Wedding Decoration", desc: "Stage, Mandap & Lighting" },
+            { icon: "🎈", title: "Birthday Decoration", desc: "Balloon Themes & Surprise Decor" },
+            { icon: "✨", title: "Event & Party Decor", desc: "Corporate & Engagement" }
+          ].map((service, index) => (
+            <Tilt key={index} perspective={800} glareEnable={true} glareMaxOpacity={0.2} scale={1.05}>
+              <div 
+                className="card" 
+                onClick={() => router.push(`/book?service=${service.title}`)} // Redirects with service name
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="icon-box">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+              </div>
+            </Tilt>
+          ))}
         </div>
       </section>
 
-      {/* CALL TO ACTION SECTION */}
-      <section className="cta">
-        <div data-aos="fade-up">
-          <h2>Ready to Make Your Event Beautiful?</h2>
-          <p>Contact us today for stunning decorations</p>
-          <a href="/book" className="btn-cta">Contact Now</a>
-        </div>
-      </section>
-
-      {/* FLOATING ACTION BUTTONS */}
       <WhatsAppButton />
       <CallButton />
     </>
   );
 }
-
-

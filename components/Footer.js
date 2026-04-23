@@ -1,41 +1,39 @@
-// components/Footer.js
 import { motion } from "framer-motion";
-import { FaInstagram } from "react-icons/fa"; // Importing Instagram icon
+import { FaInstagram, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="footer-modern">
-      <div className="footer-content">
-        <motion.div 
-          initial={{ opacity: 0 }} 
-          whileInView={{ opacity: 1 }} 
-          className="footer-brand"
-        >
-          <h2 className="gradient-text">M Square Events</h2>
-          <p>Professional Decoration Services in Kannur, Kerala</p>
-        </motion.div>
+      <div className="footer-container">
         
-        <div className="footer-social">
+        {/* Column 1: About */}
+        <div className="footer-col">
+          <h2 className="gradient-text">M Square Events</h2>
+          <p className="footer-description">
+            Premium cinematic decorations in Kannur. We turn your dream events into reality.
+          </p>
+        </div>
+
+
+        {/* Column 3: Contact */}
+        <div className="footer-col">
+          <h3 className="footer-heading">Get In Touch</h3>
+          <p className="contact-info"><FaMapMarkerAlt /> Kannur, Kerala</p>
+          <p className="contact-info"><FaPhoneAlt /> +91 8592001421</p>
           <a 
             href="https://www.instagram.com/m_square__events" 
             target="_blank" 
-            rel="noopener noreferrer"
-            className="social-icon"
+            className="insta-link"
           >
-            <FaInstagram /> <span>Follow us on Instagram</span>
+            <FaInstagram /> @_m_square__events
           </a>
         </div>
 
-        <div className="footer-links">
-          <a href="/">Home</a>
-          <a href="/gallery">Gallery</a>
-          <a href="/services">Services</a>
-          <a href="/book">Book Now</a>
-        </div>
+      </div>
 
-        <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} M Square Events. All Rights Reserved.</p>
-        </div>
+      <div className="footer-copyright">
+        <div className="divider-line"></div>
+        <p>&copy; {new Date().getFullYear()} M Square Events VP. All Rights Reserved.</p>
       </div>
     </footer>
   );
