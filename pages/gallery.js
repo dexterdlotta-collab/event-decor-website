@@ -5,12 +5,12 @@ import "yet-another-react-lightbox/styles.css";
 
 export default function Gallery() {
   // 1. Generate the array of images
-  const images = Array.from({ length: 36 }, (_, i) => i + 1);
+  const images = Array.from({ length: 52 }, (_, i) => i + 1);
 
   // 2. Format images for the Lightbox component
   const slides = images.map((num) => ({
     src: `/gallery/decor${num}.jpg`,
-    title: num <= 18 ? "💍 A New Beginning" : "🎂 Joyful Years",
+    title: num <= 18 ? "view image" : "view image",
   }));
 
   // 3. State to handle opening/closing lightbox
@@ -27,7 +27,7 @@ export default function Gallery() {
         className="section-header"
         style={{ textAlign: 'center', marginBottom: '50px' }}
       >
-        <h1 className="section-title gradient-text">Our Happy Moments</h1>
+        <h1 className="section-title gradient-text">DECOR IMAGES</h1>
         <p className="section-subtitle" style={{ color: '#888' }}>
           Click any image to view full screen and swipe through our work
         </p>
@@ -60,7 +60,7 @@ export default function Gallery() {
               transition={{ duration: 0.4 }}
             >
               <span className="caption-text">
-                {num <= 18 ? "💍 View Wedding Decor" : "🎂 View Birthday Decor"}
+                {num <= 18 ? " View Image" : "View Image"}
               </span>
             </motion.div>
           </motion.div>
