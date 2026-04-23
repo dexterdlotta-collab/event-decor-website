@@ -10,7 +10,7 @@ export default function Book() {
     ? `Hi, I am interested in booking the ${service} package from M Square Events.` 
     : "Hi, I need event decoration from M Square Events.";
 
-  const whatsappLink = `https://wa.me/918592001421?text=${encodeURIComponent(baseMessage)}`;
+  const whatsappLink = `https://wa.me/916238433287?text=${encodeURIComponent(baseMessage)}`;
 
   return (
     <div className="section" style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "80vh", background: "#000" }}>
