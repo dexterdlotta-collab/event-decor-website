@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="footer-col">
           <h3 className="footer-heading">Get In Touch</h3>
           <p className="contact-info"><FaMapMarkerAlt /> Kannur, Kerala</p>
-          <p className="contact-info"><FaPhoneAlt /> +91 8592001421</p>
+          <p className="contact-info"><FaPhoneAlt /> +91 62384 33287</p>
           <a 
             href="https://www.instagram.com/m_square__events" 
             target="_blank" 
