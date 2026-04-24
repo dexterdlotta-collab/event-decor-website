@@ -10,16 +10,13 @@ export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Initialize Scroll Animations
     AOS.init({ 
       duration: 1000, 
       once: true,
       easing: 'ease-in-out'
     });
     
-    // Splash Screen duration: 2.5 seconds
     const timer = setTimeout(() => setLoading(false), 2500);
-    
     return () => clearTimeout(timer);
   }, []);
 
@@ -55,9 +52,10 @@ export default function App({ Component, pageProps }) {
                 opacity: 1, 
               }}
               transition={{ duration: 1.5, ease: "easeOut" }}
-              style={{ width: '120px' }}
+              style={{ width: '150px' }}
             />
-    
+          </motion.div> /* THIS WAS MISSING: Closes the splash screen */
+        ) : (
           /* MAIN WEBSITE CONTENT */
           <motion.div 
             key="content"
@@ -76,3 +74,4 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
+          
