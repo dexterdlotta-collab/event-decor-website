@@ -63,8 +63,7 @@ export default function App({ Component, pageProps }) {
               transition={{ delay: 0.8 }}
               className="gradient-text"
               style={{ marginTop: '20px' }}
-            >
-              M Square Events
+            
             </motion.h1>
           </motion.div>
         ) : (
