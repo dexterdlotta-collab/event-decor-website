@@ -56,7 +56,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <img src="/logo/m2.png" alt="Logo" style={{ width: '80px' }} />
-            <h1 className="gradient-text">M Square Events</h1>
+            <h1 className="gradient-text"></h1>
           </motion.div>
           
           <p style={{ margin: '20px 0', fontSize: '1.2rem', color: '#fff' }}>
