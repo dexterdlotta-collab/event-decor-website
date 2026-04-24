@@ -11,7 +11,7 @@ export default function Navbar() {
       <div className="nav-container">
         <Link href="/" className="nav-logo">
           <img src="/logo/m2.png" alt="M Square Logo" />
-          <span>M Square Events</span>
+          <span></span>
         </Link>
         
         <div className="nav-links">
